@@ -1,4 +1,6 @@
-# video-player https://akkavoskuil.github.io/videoPlayer/#/
+# video-player 
+
+https://akkavoskuil.github.io/videoPlayer/#/
 
 ## Build & development
 
