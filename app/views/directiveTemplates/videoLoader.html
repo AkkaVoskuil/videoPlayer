@@ -1,0 +1,23 @@
+<div class="row">
+	<div ng-show="showPlayer" class="text-center col-md-12 col-lg-12">
+		<button type="button" class="btn btn-sm btn-default" ng-click="first()">First Video</button>
+		<button type="button" class="btn btn-sm btn-default" ng-click="previous()">Previous Video</button>
+		<button type="button" class="btn btn-sm btn-default" ng-click="next()">Next Video</button>
+		<button type="button" class="btn btn-sm btn-default" ng-click="last()">Last Video</button>
+
+		<video
+		id="video_container"
+		class="video-js vjs-big-play-centered center-block"
+		controls
+		height="300"
+		poster="http://vjs.zencdn.net/v/oceans.png"
+		data-setup="{}">
+		</video>
+		
+	</div>
+
+	<div ng-hide="showPlayer" class="text-center">
+		<h2>There are no more available videos</h2>
+		<button type="button" class="btn btn-default" ng-click="restart()">Restart first video</button>
+	</div>
+</div>
