@@ -6,7 +6,7 @@ app.directive('videoPlayer', ['$sce', 'videojs', 'videoService', function($sce, 
   return {
       restrict: 'E',
       replace: 'true',
-      templateUrl: '/views/directiveTemplates/videoLoader.html', 
+      templateUrl: 'views/directiveTemplates/videoLoader.html', 
       link: function(scope, element, attrs) {     
 
         scope.showPlayer = true;
