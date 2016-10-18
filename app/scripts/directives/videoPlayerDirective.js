@@ -37,8 +37,6 @@ app.directive('videoPlayer', ['$sce', '$timeout', 'videojs', 'videoService', fun
             catch(err) {
               scope.next();
             }
-
-            video.play();
         }
 
         loadVideo(videoService.getCurrentVideo());
