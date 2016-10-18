@@ -39,12 +39,33 @@ app.directive('videoPlayer', ['$sce', '$timeout', 'videojs', 'videoService', fun
             }
         }
 
-        loadVideo(videoService.getCurrentVideo());
+        videoService
+        .then(function(service) {
+          loadVideo(service.getCurrentVideo());
+        });
 
-        scope.reload = function(){ loadVideo(videoService.getCurrentVideo()); };
-        scope.next = function(){ loadVideo(videoService.getNextVideo()); };
-        scope.first = function(){ loadVideo(videoService.getFirstVideo()); };
-        scope.restart = function(){ scope.showPlayer = true; scope.first(); };
+
+        scope.reload = function() {
+          videoService
+          .then(function(service) {
+            loadVideo(service.getCurrentVideo());
+          });
+        };
+        scope.next = function() { 
+          videoService
+          .then(function(service) {
+            loadVideo(service.getNextVideo());
+          });
+        };
+        scope.first = function() { 
+          videoService
+          .then(function(service) {
+            loadVideo(service.getFirstVideo());
+          }); 
+        };
+        scope.restart = function() { 
+          scope.showPlayer = true; scope.first(); 
+        };
       }
   };
 }]);

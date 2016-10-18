@@ -7,14 +7,20 @@
       var videos = [];
       var index = 0;
 
-      function getVideosFromJson(){
-        $http({
+      function getVideosFromJson() {
+
+        if (videos && videos.length) {
+          return videos;
+        };
+
+        return $http({
           method: 'GET',
           url: 'data/videos.json'
         }).then(function successCallback(response) {
-            videos = response.data;
+            return response.data;
           }, function errorCallback(response) {
-            toastrFactory.error()
+            toastrFactory.error();
+            return [];
         });
       }
 
@@ -45,12 +51,14 @@
         return getVideo();
       }
       
-      getVideosFromJson();
-
-      return {
-        "getCurrentVideo": getCurrentVideo,
-        "getNextVideo": getNextVideo, 
-        "getFirstVideo": getFirstVideo
-      };
-
+      return getVideosFromJson().
+      
+      then(function(response) {
+        videos = response;
+        return {
+          "getCurrentVideo": getCurrentVideo,
+          "getNextVideo": getNextVideo, 
+          "getFirstVideo": getFirstVideo
+        }; 
+      });
   }]);
