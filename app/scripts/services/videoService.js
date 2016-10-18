@@ -10,7 +10,7 @@
       function getVideosFromJson(){
         $http({
           method: 'GET',
-          url: '/data/videos.json'
+          url: 'data/videos.json'
         }).then(function successCallback(response) {
             videos = response.data;
           }, function errorCallback(response) {
