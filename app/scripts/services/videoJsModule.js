@@ -1,4 +1,6 @@
-angular.module('videojsMod',[])
+'use strict';
+
+angular.module('videojsModule',[])
 
 .factory('videojs', function ($window) {
   //Simply grab moment off window, then delete moment off window

@@ -13,8 +13,10 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link href="bower_components/toastr/toastr.css" rel="stylesheet"/>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="../bower_components/video.js/dist/video-js.min.css">
+
     <!-- endbuild -->
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -29,12 +31,17 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!--Since there is no server, we include a .json file to consume the video information-->
+        <script src="data/videos.json"></script>
+
         <script src="scripts/app.js"></script>
-        <script src="scripts/services/videoJsService.js"></script>
+        <script src="scripts/services/toastrFactory.js"></script>
+        <script src="scripts/services/videoJsModule.js"></script>
         <script src="scripts/services/videoService.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/directives/videoPlayerDirective.js"></script>
@@ -60,25 +67,11 @@
     </div>
 
     <div class="container">
-    <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
-      <div class="row">
-        <video-player></video-player>
+      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+        <div class="row">
+          <video-player></video-player>
+        </div>
       </div>
-    </div>
 
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    
 </body>
 </html>

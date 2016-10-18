@@ -91,3 +91,10 @@ body {
 .spaced-row {
   padding-bottom: 15px;
 }
+
+/*display errors at top center of screen*/
+.toast-top-center {
+  top: 12px;
+  margin: auto;
+  left: 50%;
+}

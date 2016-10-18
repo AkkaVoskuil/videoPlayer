@@ -9,7 +9,6 @@
  * Main module of the application.
  */
 angular
-  .module('videoClientApp', [
-    'ngResource', 
-    'videojsMod'
-  ]);
+  .module('videoClientApp', [ 
+    'videojsModule'
+  ])
