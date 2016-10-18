@@ -70,27 +70,15 @@
         return video;
       }
 
-      function getPreviousVideo() {
-        index = index - 2;
-        return getVideo();
-      }
-
       function getFirstVideo(){
         index = 0; 
-        return getVideo();
-      }
-
-      function getLastVideo(){
-        index = videos.length -1;
         return getVideo();
       }
       
       return {
         "getCurrentVideo": getCurrentVideo,
         "getNextVideo": getNextVideo, 
-        "getPreviousVideo": getPreviousVideo,
-        "getFirstVideo": getFirstVideo,
-        "getLastVideo":getLastVideo
+        "getFirstVideo": getFirstVideo
       };
 
   }]);

@@ -75,9 +75,19 @@ body {
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
+    border-bottom: none;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+/*hide errors shown by video.js on top of player*/
+.vjs-error-display {
+  display: none;
+}
+
+.spaced-row {
+  padding-bottom: 15px;
 }

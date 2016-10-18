@@ -1,23 +1,22 @@
 <div class="row">
 	<div ng-show="showPlayer" class="text-center col-md-12 col-lg-12">
-		<button type="button" class="btn btn-sm btn-default" ng-click="first()">First Video</button>
-		<button type="button" class="btn btn-sm btn-default" ng-click="previous()">Previous Video</button>
-		<button type="button" class="btn btn-sm btn-default" ng-click="next()">Next Video</button>
-		<button type="button" class="btn btn-sm btn-default" ng-click="last()">Last Video</button>
+		<div class="row spaced-row">
+			<button type="button" class="btn btn-sm btn-primary" ng-click="next()">Next Video</button>
+		</div>
 
 		<video
 		id="video_container"
 		class="video-js vjs-big-play-centered center-block"
 		controls
 		height="300"
-		poster="http://vjs.zencdn.net/v/oceans.png"
+		poster="http://www.energymanagertoday.com/wp-content/plugins/video-thumbnails/default.jpg"
 		data-setup="{}">
 		</video>
 		
 	</div>
 
-	<div ng-hide="showPlayer" class="text-center">
-		<h2>There are no more available videos</h2>
-		<button type="button" class="btn btn-default" ng-click="restart()">Restart first video</button>
+	<div ng-hide="showPlayer" class="jumbotron text-center">
+		<h5>There are no more available videos</h5>
+		<button type="button" class="btn btn-success" ng-click="restart()">Go back to the beginning!</button>
 	</div>
 </div>

@@ -33,6 +33,5 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "videojs-contrib-hls": "^3.6.1"
   }
 }

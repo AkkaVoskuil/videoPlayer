@@ -25,14 +25,15 @@ app.directive('videoPlayer', ['$sce', 'videojs', 'videoService', function($sce, 
         function loadVideo(nextVideo){
             if(!nextVideo || nextVideo.error){
                 scope.showPlayer = false;
+                scope.$apply();
                 return;
             }
             video.src(nextVideo);
             try {
-              video.play()
+              video.play();
             }
             catch(err) {
-              scope.next()
+              scope.next();
             }
 
             video.play();
@@ -42,9 +43,7 @@ app.directive('videoPlayer', ['$sce', 'videojs', 'videoService', function($sce, 
 
         scope.reload = function(){ loadVideo(videoService.getCurrentVideo()); };
         scope.next = function(){ loadVideo(videoService.getNextVideo()); };
-        scope.previous = function(){ loadVideo(videoService.getPreviousVideo()); };
         scope.first = function(){ loadVideo(videoService.getFirstVideo()); };
-        scope.last = function(){ loadVideo(videoService.getLastVideo()); };
         scope.restart = function(){ scope.showPlayer = true; scope.first() }
       }
   };
