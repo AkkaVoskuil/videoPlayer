@@ -23,18 +23,25 @@ app.directive('videoPlayer', ['$sce', '$timeout', 'videojs', 'videoService', fun
         });
 
         function loadVideo(nextVideo){
-            if(!nextVideo || nextVideo.error){
+            if(!nextVideo || nextVideo.error) {
                 scope.showPlayer = false;
                 $timeout(function() {
                   scope.$apply();
                 });
                 return;
             }
-            video.src(nextVideo);
-            try {
-              video.play();
+            if (!video.canPlayType(nextVideo.type)) {
+              return scope.next();
             }
-            catch(err) {
+
+            video.src(nextVideo);
+            
+            try {
+              video.load();
+              video.ready(function(){
+                video.play();
+              });
+            } catch(err) {
               scope.next();
             }
         }
